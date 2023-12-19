@@ -23,6 +23,7 @@ Requirements for the admission form are:
 You will be building a simple form in React (preferably or any basic frontend language) to
 accept the details from user and make a call to a REST api (in any backend language) which
 does the following:
+
 ● Accepts the user data, does basic validations
 
 ● Store the data in database (please provide the ER diagram for the database design)

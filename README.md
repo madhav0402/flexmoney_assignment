@@ -42,8 +42,9 @@ CompletePayment() function
 2. CSS
 3. PHP
 4. MySQL
-5. jQuery
+5. jQuery (from DOM manipulation and AJAX)
 6. JavaScript
+7. XAMPP server (for testing)
 
 ## Consists of:
 1. Login

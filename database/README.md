@@ -12,4 +12,21 @@ The description of each column is given below:
 8. user_type - It denotes the privileges of the account, 1 is for admin, 2 is for user
 9. status - It denotes whether the account is active or not, 1 is for active, 2 is for inactive and 3 is for soft-delete
 10. password
-11. joined_at - The date and time when the user signed up on the website.
+11. joined_at - The date the user signed up on the website.
+
+## SQL for this table
+```
+Create table user(
+  id int primary key,
+  firstname varchar(40) NOT NULL,
+  lastname varchar(40) NOT NULL,
+  phone bigint UNIQUE NOT NULL,
+  month varchar(15),
+  dob date NOT NULL,
+  user_type int DEFAULT '2',
+  batch varchar(10),
+  status int DEFAULT '1',
+  password varchar(30) NOT NULL,
+  joined_at date DEFAULT GET_DATE()
+);
+```

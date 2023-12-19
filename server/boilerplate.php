@@ -3,7 +3,7 @@ $username = "root";
 $servername = "localhost";
 $dbname = "mydb";
 
-$con = mysqli_connect($servername, $username, "", $dbname);
+$con = mysqli_connect($servername, $username, "", $dbname); // setting up database connection
 
 if (!$con)
     die("Connection failed" + mysqli_connect_error());

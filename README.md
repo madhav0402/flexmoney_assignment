@@ -1,8 +1,6 @@
 # Task - Admission form for Yoga Classes
 This repo consists of the code for the assignment required by Flexmoney.
 
-## Task Description:
-
 ## Problem Statement:
 Assume that you are the CTO of an outsourcing firm which has been chosen to build an
 admission form for the Yoga Classes which happen every month.

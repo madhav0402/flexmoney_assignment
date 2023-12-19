@@ -19,7 +19,7 @@
             $sql="Select * from user where phone='$phone'";
             if(mysqli_query($con,$sql))
             {
-                if(mysqli_affected_rows($con)>0)
+                if(mysqli_affected_rows($con)>0) // If there exist any rows, it implies user already exists
                     echo 'User already exists!';
                 else
                 {
@@ -48,18 +48,18 @@
                 else if($rows["user_type"]=='1')  // if true, then this is admin 
                 {
                     echo "3";
-                    $_SESSION["phone"]=$phone;
+                    $_SESSION["phone"]=$phone;  // setting the session variable
                     $_SESSION["user_type"]='1';
                 }
-                else if($rows["status"]=='2')
+                else if($rows["status"]=='2')  // to understand "status", look up the README in database folder
                     echo "Account is Deactivated!";
                 else if($rows["status"]=='3')
                     echo "Account is deleted!";
                 else
                 {
-                    $_SESSION["phone"]=$phone;
-                    $_SESSION["user_type"]=$rows["user_type"];
-                    echo "4";
+                    $_SESSION["phone"]=$phone; // setting the session variable
+                    $_SESSION["user_type"]=2;
+                    echo "4";   // these 1,2,3,4 are just responses for the ajax request
                 }
             }
         }

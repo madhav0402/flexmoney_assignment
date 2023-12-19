@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="function.js"></script>
+    <style>
+        .outer{
+          padding-bottom: 2%;
+          padding-top: 3%;
+        }
+      </style>
+</head>
+<body>
+    <div class="outer">
+        <span class="error bknd"></span>
+        <div class="extra">
+          <form style="border: 1px solid #ccc" id="forgot_form">
+            <div class="container">
+              <h1>Forgot Password</h1>
+              <p>Please enter your registered Phone Number</p>
+              <hr />
+              <table>
+                <tr>
+                  <td class="lb_login">
+                    <label for="phone"><b>Phone</b></label>
+                  </td>
+                  <td class="inp">
+                    <input
+                      type="number"
+                      placeholder="Enter Phone Number"
+                      id="phone"
+                      required
+                      maxlength="10"
+                    />
+                    <span class="error" id="Pherror"></span>
+                  </td>
+                </tr>
+              </table>
+              <div class="clearfix">
+                <button type="submit" class="button loginbtn">Submit</button>
+                <button type="button" class="button cancelbtn">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+<script>
+    $("document").ready(function () {
+        $(".cancelbtn").on("click",function () {
+            window.location = "new_login.html";
+        });
+    });
+</script>
+</body>
+</html>

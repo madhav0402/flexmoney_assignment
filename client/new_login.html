@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="function.js"></script>
+  </head>
+  <body>
+    <div class="outer">
+      <span class="error bknd"></span>
+      <div class="extra">
+        <form action="" style="border: 1px solid #ccc" id="login_form">
+          <div class="container">
+            <h1>Login</h1>
+            <p>Welcome User!</p>
+            <hr />
+            <table>
+              <tr>
+                <td class="lb_login">
+                  <label for="phone"><b>Phone</b></label>
+                </td>
+                <td class="inp">     
+                  <input        
+                    type="number"
+                    placeholder="Enter Phone Number"
+                    id="phone"
+                    maxlength="10"
+                    required
+                  />
+                  <span class="error" id="Pherror"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="lb_login">
+                  <label for="password"><b>Password</b></label>
+                </td>
+                <td class="inp">
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    id="psw"
+                    required
+                  />
+                  <span class="error" id="Perror"></span>
+                </td>
+              </tr>
+            </table>
+            <div class="clearfix">
+              <button type="submit" class="button loginbtn">Login</button>
+              <button type="button" class="button signupbtn">SignUp here</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+        <a id="forgot" href="forgot.html">Forgot Password?</a>
+    </div>
+    <script>
+      $("document").ready(function () {
+        $(".signupbtn").click(function () {
+          window.location = "new_signup.html";
+        });
+      });
+    </script>
+  </body>
+</html>

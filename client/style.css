@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Full-width input fields */
+  input[type=text],input[type=number], input[type=password],input[type=date] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  background: white;
+  font-size:medium;
+  text-align: left;
+  border: 2px solid #ccc;
+}
+.lb{
+    text-align: left;
+   padding-left: 15%;
+   width: 200px;
+   font-size: large;
+   /* padding-top: 4%; */
+   vertical-align: center;
+}
+.lb_login{
+  text-align: left;
+   padding-left: 15%;
+   width: 150px;
+   font-size: large;
+   padding-bottom: 3%;
+   vertical-align: center;
+}
+.inp{
+   width: 200px;
+   text-align:left;
+   padding-top: 12px;
+}
+.extra{
+    display: table;
+    width: 100%;
+}
+
+input[type=text]:focus,input[type=number]:focus, input[type=password]:focus,input[type=date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+.button {
+  background-color: #eae9e9;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  width: fit-content;
+  opacity: 0.9;
+  border-radius:10px ;
+  border: none;
+  margin: 4px;
+}
+.outer{
+  margin: auto;
+  width: 30%;
+  padding-top: 5%;
+  background-color: white;
+}
+button:hover {
+  opacity:1;
+}
+.cancelbtn,.signupbtn{
+  color:black;
+}
+/* Extra styles for the cancel button */
+.loginbtn {
+  /* padding: 14px 20px; */
+  background-color: #da4b33;
+}
+.updatebtn{
+  background-color:#5a83c5;
+}
+/* Float cancel and signup buttons and add an equal width */
+/* .loginbtn, .signupbtn,.updatebtn {
+    //float:right;
+  width: 30%;
+} */
+.logoutbtn{
+  width: 100%;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: black;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 10px;
+ 
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  .loginbtn, .signupbtn {
+    width: 100%;
+  }
+}
+.nav{
+  margin-right: 15px;
+  padding: 0;
+  background-color: white;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  width: 100px;
+}
+#FNerror,#LNerror,#Pherror,#Perror,#PRerror,#Serror,#DOBerror{
+  text-align:left;
+  color: red;
+  font-size: medium;
+}
+.error.bknd{
+  margin: auto;
+  color: red;
+  width: 100%;
+  font-size: larger;
+  padding-bottom: 5px;
+}
+.side_nav{
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#eae9e9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.side_nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+}
+.side_nav a:hover {
+  color: #5a83c5;
+}
+a{
+  cursor: pointer;
+} 

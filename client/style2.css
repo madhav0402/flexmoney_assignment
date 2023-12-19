@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Full-width input fields */
+  input[type=text],input[type=number], input[type=password],input[type=date] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  background: white;
+  font-size:medium;
+  text-align: center;
+}
+#status{
+  font-size:medium;
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+}
+.lb{
+    text-align: center;
+   width: 150px;
+   font-size: medium;
+   /* padding-top: 1%; */
+   vertical-align: top;
+}
+.lb-edit{
+  text-align: center;
+ width: 150px;
+ font-size: medium;
+ padding-top: 6%;
+ vertical-align: top;
+}
+.lb-action{
+  text-align: center;
+ width: 200px;
+ font-size: medium;
+ /* padding-top: 1%; */
+ vertical-align: top;
+}
+.inp{
+   width: 200px;
+   text-align:center;
+   
+}
+.action{
+  width: 200px;
+}
+.extra{
+    display: table;
+    margin: auto;
+}
+
+input[type=text]:focus,input[type=number]:focus, input[type=password]:focus,input[type=date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 5px;
+}
+
+/* Set a style for all buttons */
+.button {
+  background-color:#eae9e9;
+  color: white;
+  padding: 12px 7px;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+  border-radius: 10px;
+  border: none;
+  margin: 4px;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.editbtn {
+  /* padding: 14px 20px; */
+  background-color: #3e9970;
+
+}
+.deletebtn {
+  /* padding: 14px 20px; */
+  background-color: #da4b33;
+ 
+}
+.updatebtn{
+  color:black;
+}
+/* Float cancel and signup buttons and add an equal width */
+.updatebtn{
+  /* float:right; */
+  width: 30%;
+}
+.logoutbtn{
+  width: 100%;
+  margin-right: 15px;
+  margin-top: 10px;
+  color: black;
+}
+/* Add padding to container elements */
+.container {
+  padding-left: 10px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .editbtn, .deletebtn {
+    width: 100%;
+  }
+}
+.nav{
+  margin-right: 15px;
+  padding: 0;
+  background-color: white;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  width: 100px;
+}
+.bknd{
+  color: red;
+}
+.error{
+  text-align:left;
+  color: red;
+  font-size: medium;
+}
+
+.page{
+  border-radius: 6px;
+  border-color: #ddddd6;
+  background-color:#eae9e9 ;
+  opacity: 0.9;
+}
+
+th a{
+  color: black;
+}
+.mytable{
+  padding-left: 12%;
+}
+.side_nav{
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#eae9e9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.side_nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+}
+.side_nav a:hover {
+  color: #5a83c5;
+}
+a label{
+  cursor: pointer;
+}

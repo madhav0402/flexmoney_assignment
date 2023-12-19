@@ -24,12 +24,16 @@ You will be building a simple form in React (preferably or any basic frontend la
 accept the details from user and make a call to a REST api (in any backend language) which
 does the following:
 ● Accepts the user data, does basic validations
+
 ● Store the data in database (please provide the ER diagram for the database design)
+
 ● Assume that you have a mock function named CompletePayment() which accepts the
 details of user and payment and does the payment for you. You don’t need to
 implement it.
+
 ● Return the response to front-end depending on the payment response from
 CompletePayment() function
+
 ● Host or containerize your application
 
 ## Technologies Used:

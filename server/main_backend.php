@@ -1,9 +1,9 @@
 <?php
 session_start();
 header_remove('X-Powered-By');
-if($_SESSION["phone"]==NULL)
+if($_SESSION["phone"]==NULL) // if some user is trying to access the files without login
 {
-    header("Location: new_login.html");
+    header("Location: new_login.html");  // this prevents access via URL
     die();
 }
 
@@ -11,7 +11,7 @@ include "boilerplate.php";
 $phone = $_SESSION["phone"];
 $type = $_SESSION["user_type"];
 
-$off=0;
+$off=0; // variable used to store current offset i.e. the number of skipped rows
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET["logout"])) { //this logs out the user
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo json_encode($user_row);
         }
     }
-    else if(isset($_REQUEST["batch"])&&isset($_REQUEST["month"]))  // payment and switching batches
+    else if(isset($_REQUEST["batch"])&&isset($_REQUEST["month"]))  // payment and assigning batches
     {
         $batch=$_REQUEST["batch"];
         $month=$_REQUEST["month"];
@@ -58,14 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $batch="5-6 PM";
         $sql="Select month from payment where phone='$phone'";
         $result=mysqli_fetch_assoc(mysqli_query($con, $sql));
-        if($result["month"]==date("F", strtotime('m')))
+        if($result["month"]==date("F", strtotime('m'))) // if current month == month the money is paid for
             echo "Paid";
         else
         {
             if(completePayment()){  // redirects to payment gateway, returns true for now
-            $sql="Insert into user(batch,month) values('$batch','$month') where phone='$phone'";
-            if(mysqli_query($con,$sql))
-                echo "success";
+                $sql="Insert into user(batch,month) values('$batch','$month') where phone='$phone'";
+                if(mysqli_query($con,$sql))
+                    echo "success";
             }
             else
                 echo "failed";
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($result)
         {
             $uprows = mysqli_fetch_assoc($result);
-            if(mysqli_affected_rows($con)>0)
+            if(mysqli_affected_rows($con)>0) 
             {
                 
                 if ($uprows["id"] != $id) // phone has been changed but it already exists in the DB
@@ -100,39 +100,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $pass=$uprows["password"];
                     $stmt = "Update user set firstname='$upfname',lastname='$uplname',phone='$upphone',dob='$dob',password='$uppass',status='$status' where id='$id'"; // update record 
                     if (mysqli_query($con, $stmt)) {
-                        if($phone!=$upphone||$pass!=$uppass)
-                        {
-                            echo "relogin";
-                            session_unset();
-                            session_destroy();
-                        }
-                        else{
-                            $sql = "Select id,firstname,lastname,phone,password,batch,month,dob,status,DATE_FORMAT(joined_at,'%D %b %Y') as joined_at from user where id='$id'";  //fetch updated record
-                            $admin_row = mysqli_fetch_assoc(mysqli_query($con, $sql));
-                            $admin_row["password"] = base64_decode($admin_row["password"]);
-                            echo json_encode($admin_row);
-                        }
-                    }
-                }
-            }
-            else{
-                $sql = "Select password from user where phone='$upphone'";
-                $row=mysqli_fetch_assoc(mysqli_query($con,$sql));
-                $pass=$row["password"];
-                $stmt = "Update user set firstname='$upfname',lastname='$uplname',phone='$upphone',password='$uppass',status='$status' where id='$id'";
-                if (mysqli_query($con, $stmt)) {
-                    if($phone!=$upphone||$pass!=$uppass)
-                    {
-                        echo "relogin";
-                        session_unset();
-                        session_destroy();
-                    }
-                    else{
-                        $sql = "Select id,firstname,lastname,phone,password,batch,month,status,dob,DATE_FORMAT(joined_at,'%D %b %Y') as joined_at from user where id='$id'";
+                        
+                        $sql = "Select id,firstname,lastname,phone,password,batch,month,dob,status,DATE_FORMAT(joined_at,'%D %b %Y') as joined_at from user where id='$id'";  //fetch updated record
                         $admin_row = mysqli_fetch_assoc(mysqli_query($con, $sql));
                         $admin_row["password"] = base64_decode($admin_row["password"]);
                         echo json_encode($admin_row);
                     }
+                }
+            }
+            else{
+                $sql = "Select password from user where phone='$phone'";
+                $row=mysqli_fetch_assoc(mysqli_query($con,$sql));
+                $pass=$row["password"];
+                $stmt = "Update user set firstname='$upfname',lastname='$uplname',phone='$upphone',password='$uppass',status='$status' where id='$id'";
+                if (mysqli_query($con, $stmt)) {
+                    $sql = "Select id,firstname,lastname,phone,password,batch,month,status,dob,DATE_FORMAT(joined_at,'%D %b %Y') as joined_at from user where id='$id'";
+                    $admin_row = mysqli_fetch_assoc(mysqli_query($con, $sql));
+                    $admin_row["password"] = base64_decode($admin_row["password"]);
+                    echo json_encode($admin_row);
                 }
             }
         }
@@ -162,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $pass=$row["password"];
                 if(mysqli_query($con,$stmt))
                 {
-                    if($phone!=$upphone||$pass!=$uppass)
+                    if($phone!=$upphone) // if user changes his/her phone, user is asked to login again
                     {
                         echo "relogin";
                         session_unset();

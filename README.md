@@ -49,8 +49,16 @@ CompletePayment() function
 ## Consists of:
 1. Login
 2. Signup
-3. The list of all signed-up users which can be managed by the admin
+3. The list of all signed-up users which will be managed by the admin
 4. Payment and Batch Selection (Batch can only be changed when paying for the current month)
 5. Profile page where the user can edit their details and proceed to Batch selection
 6. All signups have only user privileges by default, admin privileges have to be given manually
 
+## Assumptions Made: 
+1. Yoga classes are offline
+2. They only cater to people of India as of now (hence default country code: +91 and timezone: IST)
+3. The age of the new members will be verified in person via IDs
+4. People in the older age groups may not have an email, hence used mobile numbers
+5. It is easier to contact people via mobile numbers than email.
+6. People can only change batches when renewing the membership for the new month, so for any other circumstances, the instructor shall manually change batches
+7. The instructor will have to deactivate a user's account if he/she decides to leave the classes.

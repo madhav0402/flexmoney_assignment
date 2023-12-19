@@ -1,4 +1,4 @@
-# flexmoney_assignment
+# Task - Admission form for Yoga Classes
 This repo consists of the code for the assignment required by Flexmoney.
 
 ## Technologies Used:

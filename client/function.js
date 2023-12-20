@@ -15,7 +15,7 @@ function validateSignUp(){
     
     return true&&validateUpdate();
 }
-function validateUpdate(){                 //check
+function validateUpdate(){                 
     // var fn = document.getElementById("fname").value;
     // var ln = document.getElementById("lname").value;
     var dob=new Date(document.getElementById("dob").value);
@@ -78,10 +78,10 @@ function setDefault()    // this function makes the input fields uneditable
             "background-color":"#ffffff"
     });
 }
-function print_table(res,sn){  //takes a json array and the serial number of 1st row as parameters and prints the user listing
+function print_table(res,sn){  //takes a json array and the serial number as parameters and prints the user listing
     var l=res.length;
-    $("#result").empty();
-    for (var row = 0; row < l; ++row) {
+    $("#result").empty(); // clear old data 
+    for (var row = 0; row < l; ++row) { // iterate through the array and display all the records
         var str = "";
         str += "<tr> ";
         var key=res[row].id;
@@ -104,19 +104,19 @@ function print_table(res,sn){  //takes a json array and the serial number of 1st
         sn += 1;
     }
 }
-function col_sort(str){  // this function is responsible for sorting a column
+function col_sort(str){  // this function is responsible for sorting a column, takes a abbreviated column name as a parameter
 
     $("i").attr("class","fas fa-sort");
     if(str!=col)
     {
         col=str;
-        order=1;
+        order=1;  //default
         $("#"+col).attr("class","fas fa-sort-up");
     }
-    else
+    else        // order=1 is ascending, order=2 is descending
     {
-        order=(order+1)%3;          // order=1 is ascending, order=2 is descending
-        if(order==0)
+        order=(order+1)%3;           // if the repeatedly clicks the sort icon
+        if(order==0) // back to default
         {
             change_page(curr_page);
             return;
@@ -162,7 +162,7 @@ function hl_pageNum()  // highlights current page button
     $("#page"+curr_page).css({"background-color":"#5a83c5"}); 
     $("#page"+curr_page).css({"color":"white"});
 }
-function delete_record(val){
+function delete_record(val){  // deletes the record and refreshes the table, takes the id of the record as parameter
     Swal.fire({
         title: 'Do you want to delete this record?',
         showDenyButton: true,
@@ -189,7 +189,7 @@ function delete_record(val){
                             },
                             success: function(responseTxt) {
                                 var res = JSON.parse(responseTxt);
-                                var sn = (curr_page-1)*10+1;
+                                var sn = (curr_page-1)*10+1; // formula to calculate the beginning serial number of the page
                                 var l = res.length;
                                 if(l==0)
                                 {
@@ -212,10 +212,10 @@ function delete_record(val){
                             },
                             success:function(responseTxt){
                                 total=parseInt(responseTxt);
-                                var pages=parseInt(total/10)+1;
+                                var pages=parseInt(total/10)+1; //calculating total number of pages
                                 if(total%10==0)
                                     pages--;
-                                for (var row = 1; row <= pages; ++row) { 
+                                for (var row = 1; row <= pages; ++row) {  // priting icons for the page numbers
                                     $("#index").append("<button class=\"page\" id=\"page"+row+"\" value=\"" + row + "\" onclick=\"change_page(this.value)\">" + row + "</button>");
                                 }
                                 hl_pageNum();
@@ -227,7 +227,7 @@ function delete_record(val){
         }
     })
 }
-function change_page(val)
+function change_page(val) // moving to the selected page
 {
     $("#page"+curr_page).css({"background-color":"#eae9e9"});
     $("#page"+curr_page).css({"color":"black"});
@@ -360,7 +360,7 @@ $("document").ready(function(){
             })
         }
     });
-    $("#user_form").submit(function(event) {        // USER PROFILE
+    $("#user_form").submit(function(event) {        // USER/admin PROFILE update
         event.preventDefault();
         $(".error").html("");
         if(validateUpdate())
@@ -388,7 +388,7 @@ $("document").ready(function(){
                         success: function(responseTxt) {
                             if (responseTxt == "Phone Already exists!")
                                 $(".bknd").text(responseTxt);
-                            else if(responseTxt=="relogin")
+                            else if(responseTxt=="relogin") // if the user changes his/her phone number
                             {
                                 Swal.fire({
                                     title:"Please login again!"
@@ -531,7 +531,7 @@ $("document").ready(function(){
             event.preventDefault();
             event.stopPropagation();
             var fn = event.originalEvent.clipboardData;
-            if ((/[0-9!@#$%^&<>/*-]/).test(fn.getData("text/plain")) == true) {
+            if ((/[0-9!@#$%^&<>/*-]/).test(fn.getData("text/plain")) == true) { // prevents paste if name is invalid
                 $("#FNerror").html("First name can only have alphabets!");    
             }
             else
@@ -552,7 +552,7 @@ $("document").ready(function(){
             event.preventDefault();
             event.stopPropagation();
             var ln = event.originalEvent.clipboardData;
-            if ((/[0-9!@#$%<>/^&*-]/).test(ln.getData("text/plain")) == true) {
+            if ((/[0-9!@#$%<>/^&*-]/).test(ln.getData("text/plain")) == true) {   // prevents paste if name is invalid
                 $("#LNerror").html("Last name can only have alphabets!");    
             }
             else

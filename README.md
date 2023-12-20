@@ -58,5 +58,6 @@ CompletePayment() function
 3. The age of the new members will be verified in person via IDs
 4. People in the older age groups may not have an email, hence used mobile numbers
 5. It is easier to contact people via mobile numbers than email.
-6. People can only change batches when renewing the membership for the new month, so for any other circumstances, the instructor shall manually change batches
+6. People can only change batches when renewing the membership for the new month, so for any other circumstances, the admin shall manually change batches
 7. The instructor will have to deactivate a user's account if he/she decides to leave the classes.
+8. Birth Date cannot be changed by the user, incase of an error, it can be changed by the admin after verification.

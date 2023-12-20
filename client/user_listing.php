@@ -1,7 +1,7 @@
 <?php
 session_start();
 header_remove('X-Powered-By');
-if ($_SESSION["phone"] == NULL) {
+if ($_SESSION["phone"] == NULL) {  // prevents access to users who are not logged in
     header("Location: new_login.html");
     die();
 }
@@ -196,7 +196,7 @@ if ($_SESSION["phone"] == NULL) {
                         data: {
                             total: "yes"
                         },
-                        success: function(responseTxt) {
+                        success: function(responseTxt) { // prints the entire table containing atmost 10 records
                             total = parseInt(responseTxt);
                             var pages = parseInt(total / 10) + 1;
                             if (total % 10 == 0)
@@ -214,7 +214,7 @@ if ($_SESSION["phone"] == NULL) {
                     if (l == 0)
                         $("#result").append("<td>NO RECORDS FOUND</td>");
                     else 
-                        print_table(res,sn);
+                        print_table(res,sn);  // prints atmost 10 records starting for serial number 'sn'
                 }
             });
         });

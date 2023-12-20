@@ -12,6 +12,6 @@
 
 6. admin_profile - Similar to new_user.php, but for admin
 
-7. user_listing - This is the list of all users, where each user's details and payment status can be tracked by the admin. Atmost 10 records are visible at a time due to pagination and the records can be sorted according to name, phone etc.
+7. user_listing - This is the list of all users, where each user's details and payment status can be tracked by the admin. At most 10 records are visible at a time due to pagination and the records can be sorted according to name, phone, etc.
 
-8. function.js - This consists of all the client-side logic and input validations(via regex). Every user interaction happens via AJAX.
+8. function.js - This consists of all the client-side logic like pagination, sorting columns, etc, and input validations(via regex). Every user interaction with the server happens via AJAX.
